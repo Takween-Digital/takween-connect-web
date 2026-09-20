@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { Button } from "@/components/ui";
-import { cardHoverLift, gsap, prefersReducedMotion } from "@/lib/gsap";
+import { cardHoverLift, fadeInOnScroll, prefersReducedMotion } from "@/lib/gsap";
 import { currentDigitalProblem, whatTheWebsiteSolves } from "@/lib/content/landing";
 
 const OUTCOME_STATS = [
@@ -33,27 +33,18 @@ export function ProblemSolution() {
     () => {
       if (prefersReducedMotion()) return;
 
-      gsap.from(".problem-solution-before", {
-        opacity: 0,
-        x: -60,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".problem-solution-cards", start: "top 75%" },
+      fadeInOnScroll(".problem-solution-before", ".problem-solution-cards", {
+        duration: 0.55,
+        start: "top 75%",
       });
-      gsap.from(".problem-solution-after", {
-        opacity: 0,
-        x: 60,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".problem-solution-cards", start: "top 75%" },
+      fadeInOnScroll(".problem-solution-after", ".problem-solution-cards", {
+        duration: 0.55,
+        start: "top 75%",
       });
-      gsap.from(".problem-solution-stat", {
-        opacity: 0,
-        scale: 0.88,
-        stagger: 0.14,
-        duration: 0.6,
-        ease: "back.out(1.4)",
-        scrollTrigger: { trigger: ".problem-solution-stats", start: "top 85%" },
+      fadeInOnScroll(".problem-solution-stat", ".problem-solution-stats", {
+        stagger: 0.12,
+        duration: 0.5,
+        start: "top 85%",
       });
     },
     { scope: sectionRef }

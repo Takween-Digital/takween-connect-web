@@ -60,7 +60,7 @@ h2 {
 
 h3 {
   font-size: 1.25rem; /* 20px */
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.3;
 }
 
@@ -602,13 +602,11 @@ html[data-compact-ui="true"] .ui-mobile-nav {
 /* Scroll-reveal (see components/shared/Reveal.tsx) */
 .ui-reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.6s ease;
 }
 
 .ui-reveal.ui-reveal-visible {
   opacity: 1;
-  transform: none;
 }
 
 /* SectionRadar: fixed vertical dot rail on the right edge. Sized up for

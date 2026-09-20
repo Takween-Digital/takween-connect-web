@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { Button } from "@/components/ui";
 import { RichText } from "@/components/shared/RichText";
-import { cardHoverLift, gsap, prefersReducedMotion } from "@/lib/gsap";
+import { cardHoverLift, fadeInOnScroll, prefersReducedMotion } from "@/lib/gsap";
 import { PackageBenefits } from "./PackageBenefits";
 import type { CategorizedSection as CategorizedSectionContent } from "@/lib/content/landing";
 
@@ -84,37 +84,24 @@ export function ScopeComparison({ included, addOns }: ScopeComparisonProps) {
     () => {
       if (prefersReducedMotion()) return;
 
-      gsap.from(".package-benefit-tile", {
-        opacity: 0,
-        y: 30,
-        stagger: 0.1,
-        duration: 0.6,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".package-benefit-grid", start: "top 80%" },
+      fadeInOnScroll(".package-benefit-tile", ".package-benefit-grid", {
+        stagger: 0.08,
+        duration: 0.5,
+        start: "top 80%",
       });
-
-      gsap.from(".scope-panel-free", {
-        opacity: 0,
-        x: -50,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".scope-panels", start: "top 75%" },
+      fadeInOnScroll(".scope-panel-free", ".scope-panels", {
+        duration: 0.55,
+        start: "top 75%",
       });
-      gsap.from(".scope-panel-addon", {
-        opacity: 0,
-        x: 50,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".scope-panels", start: "top 75%" },
+      fadeInOnScroll(".scope-panel-addon", ".scope-panels", {
+        duration: 0.55,
+        start: "top 75%",
       });
-      gsap.from(".scope-list-item", {
-        opacity: 0,
-        y: 10,
-        stagger: 0.05,
+      fadeInOnScroll(".scope-list-item", ".scope-panels", {
+        stagger: 0.04,
         duration: 0.4,
-        ease: "power2.out",
-        delay: 0.3,
-        scrollTrigger: { trigger: ".scope-panels", start: "top 75%" },
+        delay: 0.15,
+        start: "top 75%",
       });
     },
     { scope: sectionRef }

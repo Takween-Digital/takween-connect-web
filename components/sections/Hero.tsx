@@ -71,49 +71,31 @@ export function Hero() {
       // value as its "to" target, which would already be 0 here and
       // produce a no-op tween. fromTo states both ends explicitly.
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-      tl.fromTo(".hero-badge", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.6 })
+      tl.fromTo(".hero-badge", { opacity: 0 }, { opacity: 1, duration: 0.55 })
         .fromTo(
           ".hero-bullet-item",
-          { opacity: 0, x: -24 },
-          { opacity: 1, x: 0, stagger: 0.12, duration: 0.6, ease: "power2.out" },
-          "-=0.4"
+          { opacity: 0 },
+          { opacity: 1, stagger: 0.1, duration: 0.5, ease: "power2.out" },
+          "-=0.35"
         )
         .fromTo(
           ".hero-urgency-item",
-          { opacity: 0, y: 12 },
-          { opacity: 1, y: 0, stagger: 0.08, duration: 0.5 },
-          "-=0.3"
+          { opacity: 0 },
+          { opacity: 1, stagger: 0.06, duration: 0.45 },
+          "-=0.25"
         )
         .fromTo(
           ".hero-cta-group",
-          { opacity: 0, y: 20, scale: 0.97 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.6 },
-          "-=0.3"
+          { opacity: 0 },
+          { opacity: 1, duration: 0.5 },
+          "-=0.25"
         )
-        // Browser mockup: transform-only (no opacity) — deliberately not
-        // the same .hero-anim-init pattern as the copy column. It's a
-        // large block, and hiding a large element behind opacity: 0 pre-
-        // hydration risks it becoming a *later, worse* Lighthouse LCP
-        // candidate than the h1 fix from Phase 7 solved — transforms
-        // don't affect "when was this content painted", so this settles
-        // into place with zero LCP exposure.
-        .fromTo(".browser", { x: 40, scale: 0.96 }, { x: 0, scale: 1, duration: 1 }, 0)
-        .from(
+        .fromTo(
           ".mock-card",
-          { opacity: 0, y: 16, stagger: 0.1, duration: 0.5, ease: "power2.out" },
-          "-=0.3"
+          { opacity: 0 },
+          { opacity: 1, stagger: 0.08, duration: 0.4, ease: "power2.out" },
+          "-=0.2"
         );
-
-      // Idle float once settled — small, continuous, not part of the
-      // one-shot entrance timeline above.
-      gsap.to(".browser", {
-        y: 8,
-        duration: 4,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        delay: 1.6,
-      });
     },
     { scope: sectionRef }
   );

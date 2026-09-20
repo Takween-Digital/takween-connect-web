@@ -53,4 +53,44 @@ export function cardHoverLift(el: Element | null, hovered: boolean, liftPx = 6) 
   });
 }
 
+/**
+ * Scroll-in reveal that only fades. x/y/scale/rotation here is what made
+ * whole sections look like they were sliding around the page (and on
+ * mobile those transforms also overflowed horizontally).
+ *
+ * fromTo + immediateRender:false so hydration doesn't snap content to
+ * an offset "from" state before the trigger fires.
+ */
+export function fadeInOnScroll(
+  targets: gsap.TweenTarget,
+  trigger: gsap.DOMTarget,
+  vars?: {
+    stagger?: number;
+    duration?: number;
+    delay?: number;
+    start?: string;
+  }
+) {
+  if (prefersReducedMotion()) return;
+
+  gsap.fromTo(
+    targets,
+    { opacity: 0 },
+    {
+      opacity: 1,
+      duration: vars?.duration ?? 0.55,
+      delay: vars?.delay ?? 0,
+      stagger: vars?.stagger,
+      ease: "power2.out",
+      immediateRender: true,
+      scrollTrigger: {
+        trigger,
+        start: vars?.start ?? "top 80%",
+        once: true,
+        toggleActions: "play none none none",
+      },
+    }
+  );
+}
+
 export { gsap, ScrollTrigger };

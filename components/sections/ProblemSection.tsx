@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { cardHoverLift, gsap, prefersReducedMotion } from "@/lib/gsap";
+import { cardHoverLift, fadeInOnScroll, gsap, prefersReducedMotion } from "@/lib/gsap";
 import { InstagramIcon, WhatsAppIcon } from "@/components/icons";
 
 /** Self-authored "word of mouth" glyph — no single brand to borrow, so
@@ -93,15 +93,10 @@ export function ProblemSection() {
     () => {
       if (prefersReducedMotion()) return;
 
-      gsap.from(".problem-source-card", {
-        opacity: 0,
-        y: 40,
-        rotationX: 15,
-        transformPerspective: 800,
-        stagger: 0.15,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".problem-source-grid", start: "top 75%" },
+      fadeInOnScroll(".problem-source-card", ".problem-source-grid", {
+        stagger: 0.1,
+        duration: 0.55,
+        start: "top 75%",
       });
 
       gsap.to(".problem-arrow", {
@@ -130,7 +125,7 @@ export function ProblemSection() {
           cycleTl
             .to(typeProxy, {
               chars: query.length,
-              duration: query.length * 0.045,
+              duration: query.length * 0.025,
               ease: "none",
               onUpdate: () => {
                 queryEl.textContent = query.slice(0, Math.round(typeProxy.chars));
@@ -160,17 +155,15 @@ export function ProblemSection() {
         ease: "steps(1)",
       });
 
-      const calloutTl = gsap.timeline({
-        scrollTrigger: { trigger: ".problem-callout-negative", start: "top 85%" },
+      fadeInOnScroll(".problem-callout-negative", ".problem-callout-negative", {
+        duration: 0.45,
+        start: "top 85%",
       });
-      calloutTl
-        .from(".problem-callout-negative", { opacity: 0, y: -16, duration: 0.5, ease: "power2.out" })
-        .to(".problem-callout-negative", { x: -6, duration: 0.07, repeat: 5, yoyo: true, ease: "power1.inOut" })
-        .from(
-          ".problem-callout-positive",
-          { opacity: 0, scale: 0.95, duration: 0.5, ease: "back.out(1.5)" },
-          "-=0.2"
-        );
+      fadeInOnScroll(".problem-callout-positive", ".problem-callout-positive", {
+        duration: 0.45,
+        delay: 0.12,
+        start: "top 85%",
+      });
     },
     { scope: sectionRef }
   );
@@ -256,31 +249,70 @@ export function ProblemSection() {
         >
           <p style={{ fontWeight: 800, marginBottom: "var(--space-4)" }}>Then they search for a business like yours.</p>
           <span
+            className="problem-search-field"
             style={{
-              position: "relative",
-              display: "inline-flex",
-              alignItems: "center",
+              display: "flex",
+              alignItems: "flex-start",
               gap: "var(--space-2)",
+              width: "100%",
+              boxSizing: "border-box",
               border: "1px solid var(--color-border-medium)",
               borderRadius: "var(--radius-full)",
               padding: "var(--space-2) var(--space-4)",
               background: "var(--color-surface-base)",
               color: "var(--color-text-secondary)",
               fontSize: "var(--font-size-sm)",
+              textAlign: "left",
             }}
           >
-            <SearchIcon />
-            <span className="problem-search-query">{SEARCH_QUERIES[0]}</span>
+            <span style={{ display: "inline-flex", flexShrink: 0, marginTop: 2 }}>
+              <SearchIcon />
+            </span>
+            {/* Hidden copies of every query reserve the max width/height, so
+                wrapping on a space at the end of a phrase cannot resize this
+                chip or shove the callouts below. The live typewriter sits on
+                the same grid cell. */}
             <span
-              className="problem-search-caret"
-              aria-hidden="true"
+              className="problem-search-slot"
               style={{
-                width: 1,
-                height: "1em",
-                background: "var(--color-text-tertiary)",
-                marginLeft: 1,
+                display: "grid",
+                flex: 1,
+                minWidth: 0,
+                justifyItems: "start",
+                alignItems: "start",
               }}
-            />
+            >
+              {SEARCH_QUERIES.map((query) => (
+                <span
+                  key={query}
+                  aria-hidden="true"
+                  className="problem-search-sizer"
+                  style={{
+                    gridArea: "1 / 1",
+                    visibility: "hidden",
+                    pointerEvents: "none",
+                    whiteSpace: "normal",
+                  }}
+                >
+                  {query}
+                </span>
+              ))}
+              <span style={{ gridArea: "1 / 1", minWidth: 0 }}>
+                <span className="problem-search-query">{SEARCH_QUERIES[0]}</span>
+                <span
+                  className="problem-search-caret"
+                  aria-hidden="true"
+                  style={{
+                    display: "inline-block",
+                    width: 1,
+                    height: "1em",
+                    background: "var(--color-text-tertiary)",
+                    marginLeft: 1,
+                    verticalAlign: "-0.1em",
+                  }}
+                />
+              </span>
+            </span>
           </span>
         </div>
 

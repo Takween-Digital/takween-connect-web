@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { cardHoverLift, gsap, prefersReducedMotion } from "@/lib/gsap";
+import { cardHoverLift, fadeInOnScroll, prefersReducedMotion } from "@/lib/gsap";
 import { whyItsSponsored } from "@/lib/content/landing";
 
 function PlusIcon() {
@@ -92,19 +92,13 @@ export function WhySponsored() {
     () => {
       if (prefersReducedMotion()) return;
 
-      gsap.from(".why-panel-left", {
-        opacity: 0,
-        x: -50,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".why-sponsored-grid", start: "top 75%" },
+      fadeInOnScroll(".why-panel-left", ".why-sponsored-grid", {
+        duration: 0.55,
+        start: "top 75%",
       });
-      gsap.from(".why-panel-right", {
-        opacity: 0,
-        x: 50,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".why-sponsored-grid", start: "top 75%" },
+      fadeInOnScroll(".why-panel-right", ".why-sponsored-grid", {
+        duration: 0.55,
+        start: "top 75%",
       });
     },
     { scope: sectionRef }

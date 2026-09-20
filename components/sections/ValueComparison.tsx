@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { cardHoverLift, gsap, prefersReducedMotion } from "@/lib/gsap";
+import { cardHoverLift, fadeInOnScroll, gsap, prefersReducedMotion } from "@/lib/gsap";
 import { marketValueComparison } from "@/lib/config";
 import { valueComparison } from "@/lib/content/landing";
 
@@ -26,26 +26,16 @@ export function ValueComparison() {
     () => {
       if (prefersReducedMotion()) return;
 
-      gsap.from(".value-agency-card, .value-free-card", {
-        opacity: 0,
-        y: 30,
-        stagger: 0.15,
-        duration: 0.6,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".ui-value-wrap", start: "top 75%" },
+      fadeInOnScroll(".value-agency-card, .value-free-card", ".ui-value-wrap", {
+        stagger: 0.12,
+        duration: 0.5,
+        start: "top 75%",
       });
-
-      // Prices pop in with a slight overshoot just after their cards land —
-      // the numbers are the whole point of this section, so they get their
-      // own beat instead of just fading in with everything else.
-      gsap.from(".value-price", {
-        scale: 0.7,
-        opacity: 0,
-        stagger: 0.15,
-        duration: 0.6,
-        delay: 0.25,
-        ease: "back.out(1.7)",
-        scrollTrigger: { trigger: ".ui-value-wrap", start: "top 75%" },
+      fadeInOnScroll(".value-price", ".ui-value-wrap", {
+        stagger: 0.12,
+        duration: 0.5,
+        delay: 0.15,
+        start: "top 75%",
       });
 
       // "VS" breathes gently forever once mounted — purely decorative, same

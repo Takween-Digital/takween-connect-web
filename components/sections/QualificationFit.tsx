@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { Button } from "@/components/ui";
 import { RichText } from "@/components/shared/RichText";
-import { cardHoverLift, gsap, prefersReducedMotion } from "@/lib/gsap";
+import { cardHoverLift, fadeInOnScroll, prefersReducedMotion } from "@/lib/gsap";
 import type { ListSection as ListSectionContent } from "@/lib/content/landing";
 
 function CheckIcon({ size = 20 }: { size?: number }) {
@@ -66,32 +66,14 @@ export function QualificationFit({
     () => {
       if (prefersReducedMotion()) return;
 
-      gsap.from(".qualify-card-good", {
-        opacity: 0,
-        x: -50,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".qualify-cards", start: "top 75%" },
+      fadeInOnScroll(".qualify-card-good", ".qualify-cards", {
+        duration: 0.55,
+        start: "top 75%",
       });
-      gsap.from(".qualify-card-bad", {
-        opacity: 0,
-        x: 50,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".qualify-cards", start: "top 75%" },
+      fadeInOnScroll(".qualify-card-bad", ".qualify-cards", {
+        duration: 0.55,
+        start: "top 75%",
       });
-      gsap.fromTo(
-        ".qualify-cross-icon",
-        { scale: 0.6 },
-        {
-          scale: 1,
-          stagger: 0.06,
-          duration: 0.4,
-          ease: "back.out(2.5)",
-          delay: 0.4,
-          scrollTrigger: { trigger: ".qualify-cards", start: "top 75%" },
-        }
-      );
     },
     { scope: sectionRef }
   );

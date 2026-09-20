@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { cardHoverLift, gsap, prefersReducedMotion } from "@/lib/gsap";
+import { cardHoverLift, fadeInOnScroll, gsap, prefersReducedMotion } from "@/lib/gsap";
 
 interface FeelCard {
   icon: React.ReactNode;
@@ -54,15 +54,10 @@ export function BuiltToFeel() {
     () => {
       if (prefersReducedMotion()) return;
 
-      gsap.from(".built-card", {
-        opacity: 0,
-        y: 50,
-        rotationY: (index) => (index === 0 ? -8 : index === 2 ? 8 : 0),
-        transformPerspective: 1000,
-        stagger: 0.15,
-        duration: 0.85,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".built-cards-grid", start: "top 80%" },
+      fadeInOnScroll(".built-card", ".built-cards-grid", {
+        stagger: 0.1,
+        duration: 0.55,
+        start: "top 80%",
       });
     },
     { scope: sectionRef }

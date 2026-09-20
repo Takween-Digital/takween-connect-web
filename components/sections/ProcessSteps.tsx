@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
-import { gsap, prefersReducedMotion } from "@/lib/gsap";
+import { fadeInOnScroll, prefersReducedMotion } from "@/lib/gsap";
 import { Button } from "@/components/ui";
 import { processSteps } from "@/lib/content/landing";
 import { AmbientParallaxBg } from "@/components/shared/AmbientParallaxBg";
@@ -96,13 +96,10 @@ export function ProcessSteps() {
     () => {
       if (prefersReducedMotion()) return;
 
-      gsap.from(".process-step-item", {
-        opacity: 0,
-        y: 30,
-        stagger: 0.1,
-        duration: 0.6,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".process-step-grid", start: "top 85%" },
+      fadeInOnScroll(".process-step-item", ".process-step-grid", {
+        stagger: 0.08,
+        duration: 0.5,
+        start: "top 85%",
       });
     },
     { scope: sectionRef, dependencies: [processSteps.steps.length] }
