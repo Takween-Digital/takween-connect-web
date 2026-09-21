@@ -10,7 +10,8 @@ export function SiteHeader() {
     <header
       className="ui-site-header"
       style={{
-        padding: "var(--space-4) var(--space-8)",
+        // padding: "var(--space-4) var(--space-8)",
+        padding: "1rem 1rem",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
