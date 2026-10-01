@@ -261,7 +261,7 @@ export function QualificationFit({
             className="cta-btn-accent"
             style={{
               background: "var(--color-accent)",
-              boxShadow: "0 10px 24px rgba(41, 193, 91, 0.25)",
+              boxShadow: "0 10px 24px rgba(39, 168, 238, 2.25)",
             }}
           >
             See If You Qualify

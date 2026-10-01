@@ -44,8 +44,8 @@ export async function LimitedCapacity() {
               gap: "var(--space-2)",
               padding: "var(--space-1) var(--space-4)",
               borderRadius: "var(--radius-full)",
-              background: "rgba(41, 193, 91, 0.08)",
-              border: "1px solid rgba(41, 193, 91, 0.3)",
+              background: "rgba(39, 168, 238, 0.08)",
+              border: "1px solid rgba(39, 168, 238, 0.3)",
               color: "var(--color-accent)",
               fontSize: "var(--font-size-xs)",
               fontWeight: 700,
@@ -59,7 +59,7 @@ export async function LimitedCapacity() {
                 height: 8,
                 borderRadius: "var(--radius-full)",
                 background: "var(--color-accent)",
-                boxShadow: "0 0 0 2px rgba(41, 193, 91, 0.2)",
+                boxShadow: "0 0 0 2px rgba(39, 168, 238, 0.2)",
               }}
             />
             Cohort Status: Applications Open

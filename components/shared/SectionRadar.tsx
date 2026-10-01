@@ -41,7 +41,7 @@ interface SectionRadarProps {
  *
  * Features:
  * 1. Adaptive dot column fitting all sections with dynamic clamp spacing.
- * 2. Signature #17c65c vibrant emerald styling (rail glow, active dot halo, pulse beacon).
+ * 2. Signature #27A8EE vibrant emerald styling (rail glow, active dot halo, pulse beacon).
  * 3. Rich two-line glassmorphic heading badges (Chapter #, Title, and Subtitle).
  * 4. GSAP ScrollTrigger continuous fill rail + IntersectionObserver spy with edge clamping.
  */
@@ -167,7 +167,7 @@ export function SectionRadar({ items = DEFAULT_SECTION_RADAR_ITEMS, className }:
             left: "50%",
             width: "var(--radar-rail-width, 2px)",
             transform: "translateX(-50%)",
-            background: "rgba(23, 198, 92, 0.18)",
+            background: "rgba(39, 168, 238, 0.18)",
             borderRadius: "var(--radius-full)",
           }}
         >
@@ -178,8 +178,8 @@ export function SectionRadar({ items = DEFAULT_SECTION_RADAR_ITEMS, className }:
               height: "100%",
               transformOrigin: "top",
               transform: "scaleY(0)",
-              background: "linear-gradient(180deg, #17c65c 0%, #10b981 100%)",
-              boxShadow: "0 0 10px rgba(23, 198, 92, 0.6)",
+              background: "linear-gradient(180deg, #27A8EE 0%, #10b981 100%)",
+              boxShadow: "0 0 10px rgba(39, 168, 238, 0.5)",
               borderRadius: "var(--radius-full)",
             }}
           />
@@ -212,9 +212,9 @@ export function SectionRadar({ items = DEFAULT_SECTION_RADAR_ITEMS, className }:
                   backdropFilter: "blur(16px)",
                   WebkitBackdropFilter: "blur(16px)",
                   border: "1px solid",
-                  borderColor: isVisible ? "#17c65c" : "rgba(23, 198, 92, 0.25)",
+                  borderColor: isVisible ? "#27A8EE" : "rgba(39, 168, 238, 2.25)",
                   boxShadow: isActive
-                    ? "0 8px 30px -4px rgba(23, 198, 92, 0.28), 0 4px 12px rgba(0, 0, 0, 0.06)"
+                    ? "0 8px 30px -4px rgba(39, 168, 238, 0.28), 0 4px 12px rgba(0, 0, 0, 0.06)"
                     : "0 6px 20px -4px rgba(0, 0, 0, 0.08)",
                   opacity: isVisible ? 1 : 0,
                   pointerEvents: "none",
@@ -223,7 +223,7 @@ export function SectionRadar({ items = DEFAULT_SECTION_RADAR_ITEMS, className }:
                   zIndex: 20,
                 }}
               >
-                {/* Number chip in vibrant #17c65c */}
+                {/* Number chip in vibrant #27A8EE */}
                 <span
                   style={{
                     display: "inline-flex",
@@ -233,9 +233,9 @@ export function SectionRadar({ items = DEFAULT_SECTION_RADAR_ITEMS, className }:
                     fontWeight: 800,
                     fontFamily: "var(--font-mono, monospace)",
                     letterSpacing: "0.04em",
-                    color: "#17c65c",
-                    background: "rgba(23, 198, 92, 0.12)",
-                    border: "1px solid rgba(23, 198, 92, 0.28)",
+                    color: "#27A8EE",
+                    background: "rgba(39, 168, 238, 0.12)",
+                    border: "1px solid rgba(39, 168, 238, 0.28)",
                     borderRadius: "6px",
                     padding: "2px 6px",
                     lineHeight: 1,
@@ -262,7 +262,7 @@ export function SectionRadar({ items = DEFAULT_SECTION_RADAR_ITEMS, className }:
                       style={{
                         fontSize: "10px",
                         fontWeight: 600,
-                        color: isActive ? "#17c65c" : "#64748b",
+                        color: isActive ? "#27A8EE" : "#64748b",
                         lineHeight: 1.15,
                         letterSpacing: "0.01em",
                       }}
@@ -285,7 +285,7 @@ export function SectionRadar({ items = DEFAULT_SECTION_RADAR_ITEMS, className }:
                     background: "rgba(255, 255, 255, 0.94)",
                     borderTop: "1px solid",
                     borderRight: "1px solid",
-                    borderColor: isVisible ? "#17c65c" : "rgba(23, 198, 92, 0.25)",
+                    borderColor: isVisible ? "#27A8EE" : "rgba(39, 168, 238, 2.25)",
                   }}
                 />
               </div>
@@ -310,14 +310,14 @@ export function SectionRadar({ items = DEFAULT_SECTION_RADAR_ITEMS, className }:
                   width: "var(--radar-dot-size, 11px)",
                   height: "var(--radar-dot-size, 11px)",
                   borderRadius: "var(--radius-full)",
-                  background: isActive ? "#17c65c" : "#ffffff",
+                  background: isActive ? "#27A8EE" : "#ffffff",
                   border: `var(--radar-border-width, 2px) solid ${
-                    isActive ? "#17c65c" : "rgba(23, 198, 92, 0.45)"
+                    isActive ? "#27A8EE" : "rgba(39, 168, 238, 0.45)"
                   }`,
                   boxShadow: isActive
-                    ? "0 0 0 3.5px rgba(23, 198, 92, 0.25), 0 0 16px rgba(23, 198, 92, 0.6)"
+                    ? "0 0 0 3.5px rgba(39, 168, 238, 0.5), 0 0 16px rgba(39, 168, 238, 0.5)"
                     : isHovered
-                    ? "0 0 0 2.5px rgba(23, 198, 92, 0.2), 0 0 10px rgba(23, 198, 92, 0.35)"
+                    ? "0 0 0 2.5px rgba(39, 168, 238, 0.2), 0 0 10px rgba(39, 168, 238, 0.35)"
                     : "0 1px 3px rgba(0, 0, 0, 0.08)",
                   transition: "background 200ms ease, border-color 200ms ease, box-shadow 200ms ease",
                   cursor: "pointer",
@@ -331,7 +331,7 @@ export function SectionRadar({ items = DEFAULT_SECTION_RADAR_ITEMS, className }:
                       position: "absolute",
                       inset: "-4px",
                       borderRadius: "50%",
-                      border: "1.5px solid #17c65c",
+                      border: "1.5px solid #27A8EE",
                       animation: "radarPulse 2s cubic-bezier(0, 0, 0.2, 1) infinite",
                       pointerEvents: "none",
                     }}

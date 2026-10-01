@@ -161,7 +161,7 @@
 
 .ui-badge-warning {
   background: #fef3c7;
-  color: #b45309;
+  color: #27A8EE;
 }
 
 .ui-badge-error {
@@ -524,4 +524,3 @@ html[data-compact-ui="true"] .ui-header-scroll-wrap .ui-site-header {
     box-shadow: var(--shadow-lg);
   }
 }
-

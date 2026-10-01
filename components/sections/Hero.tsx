@@ -108,7 +108,7 @@ export function Hero() {
         width: "100%",
         backgroundColor: "#fff",
         backgroundImage: [
-          "radial-gradient(circle at 88% 14%, rgba(34, 197, 94, 0.11), transparent 25%)",
+          "radial-gradient(circle at 88% 14%, rgba(39, 168, 238, 0.11), transparent 25%)",
           "linear-gradient(180deg, #ffffff 0%, #fbfefc 100%)",
         ].join(", "),
         overflow: "hidden",
@@ -225,7 +225,7 @@ export function Hero() {
               href={hero.ctaHref}
               variant="primary"
               className="cta-btn-accent"
-              style={{ background: "var(--color-accent)", boxShadow: "0 10px 24px rgba(41, 193, 91, 0.25)" }}
+              style={{ background: "var(--color-accent)", boxShadow: "0 10px 24px rgba(39, 168, 238, 2.25)" }}
             >
               {hero.ctaLabel}
             </Button>
@@ -256,13 +256,13 @@ export function Hero() {
               </div>
               <div className="mock-img" aria-hidden="true">
                 <svg viewBox="0 0 240 180" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
-                  <rect width="240" height="180" rx="16" fill="#e8faf0" />
-                  <circle cx="185" cy="55" r="46" fill="#c2f3d6" />
+                  <rect width="240" height="180" rx="16" fill="rgba(39, 168, 238, 0.20)" />
+                  <circle cx="185" cy="55" r="46" fill="#27A8EE" />
                   <rect x="22" y="26" width="158" height="128" rx="14" fill="#ffffff" stroke="#bbf7d0" strokeWidth="2.5" />
-                  <rect x="38" y="44" width="88" height="12" rx="6" fill="#17c65c" />
+                  <rect x="38" y="44" width="88" height="12" rx="6" fill="#27A8EE" />
                   <rect x="38" y="68" width="112" height="7" rx="3.5" fill="#9ca3af" />
                   <rect x="38" y="84" width="98" height="7" rx="3.5" fill="#d1d5db" />
-                  <rect x="38" y="108" width="58" height="22" rx="6" fill="#17c65c" />
+                  <rect x="38" y="108" width="58" height="22" rx="6" fill="#27A8EE" />
                 </svg>
               </div>
             </div>

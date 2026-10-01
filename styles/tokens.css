@@ -7,10 +7,10 @@
 
 :root {
   /* Primary palette */
-  --color-primary: #29c15b;
-  --color-primary-dark: #209748;
-  --color-primary-light: #c0edcf;
-  --color-primary-pale: #f3fcf6;
+  --color-primary: #27A8EE;
+  --color-primary-dark: #27A8EE;
+  --color-primary-light: rgba(39, 168, 238);
+  --color-primary-pale: #d5f7ff;
   /*
    * Neither --color-primary nor --color-primary-dark meets WCAG AA
    * (4.5:1) for body-sized text or white-on-color button labels —
@@ -22,8 +22,8 @@
    * needs to pass AA at body size — not part of the original ported
    * palette, added to satisfy §9's accessibility requirement.
    */
-  --color-primary-accessible: #197638;
-  --color-primary-accessible-dark: #145d2c;
+  --color-primary-accessible: #27a8ee;
+  --color-primary-accessible-dark: rgb(94, 179, 224);
 
   /*
    * Accent scale — same hue as --color-primary, used the same way:
@@ -34,9 +34,9 @@
    * --color-primary-accessible (or white on --color-primary-accessible-dark)
    * instead.
    */
-  --color-accent: #29c15b;
-  --color-accent-dark: #209748;
-  --color-accent-pale: #f3fcf6;
+  --color-accent: #27A8EE;
+  --color-accent-dark: #27A8EE;
+  --color-accent-pale: #d5f7ff;
 
   /* Semantic colors */
   --color-success: #10b981;
@@ -102,9 +102,9 @@
   --space-16: 4rem;
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 1px 2px rgba(234, 75, 75, 0.05);
+  --shadow-md: 0 4px 6px rgba(181, 18, 18, 0.1);
+  --shadow-lg: 0 10px 15px rgba(123, 0, 0, 0.1);
   /* Softer, more diffuse shadow from the docs/index.html redesign — used on
      the larger, more rounded cards (see --radius-2xl) rather than replacing
      --shadow-lg everywhere. */

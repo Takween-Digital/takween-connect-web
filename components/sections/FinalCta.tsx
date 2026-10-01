@@ -27,7 +27,7 @@ export function FinalCta() {
             border: "1px solid var(--color-border-light)",
             borderRadius: 28,
             background:
-              "radial-gradient(circle at 85% 20%, rgba(34, 197, 94, 0.15), transparent 24%), #fff",
+              "radial-gradient(circle at 85% 20%, rgba(39, 168, 238, 0.15), transparent 24%), #fff",
             boxShadow: "var(--shadow-xl)",
           }}
         >
@@ -115,7 +115,7 @@ export function FinalCta() {
                 minHeight: 50,
                 padding: "0 28px",
                 borderRadius: 12,
-                boxShadow: "0 10px 24px rgba(41, 193, 91, 0.25)",
+                boxShadow: "0 10px 24px rgba(39, 168, 238, 2.25)",
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",

@@ -91,7 +91,7 @@ export function BackToTop() {
         borderRadius: "var(--radius-full)",
         border: "none",
         background: "var(--color-accent)",
-        boxShadow: "0 10px 24px rgba(41, 193, 91, 0.35)",
+        boxShadow: "0 10px 24px rgba(39, 168, 238, 0.35)",
         display: "grid",
         placeItems: "center",
         cursor: "pointer",
